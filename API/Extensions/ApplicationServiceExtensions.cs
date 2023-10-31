@@ -20,6 +20,10 @@ namespace API.Extensions
 
             // Register services using DI
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+
+            // Register auto mapper
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             return services;
 
