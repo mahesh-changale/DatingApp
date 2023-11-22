@@ -49,20 +49,13 @@ export class MembersService {
     )
   }
 
-  // getMessages(pageNumber: number, pageSize: number, container: string) {
-  //   let params = getPaginationHeaders(pageNumber, pageSize);
-  //   params = params.append('Container', container);
-  //   return getPaginatedResult<Message[]>(this.baseUrl + 'messages', params, this.http);
-  // }
+  setMainPhoto(photoId: number) {
+    return this.http.put(this.baseUrl + 'users/set-main-photo/' + photoId, {});
+  }
 
-  // getMessageThread(username: string) {
-  //   return this.http.get<Message[]>(this.baseUrl + 'messages/thread/' + username);
-  // }
-
-  // async sendMessage(username: string, content: string) {
-  //   return this.hubConnection?.invoke('SendMessage', { recipientUsername: username, content })
-  //     .catch(error => console.log(error));
-  // }
+  deletePhoto(photoId: number) {
+    return this.http.delete(this.baseUrl + 'users/delete-photo/' + photoId);
+  }
 
   deleteMessage(id: number) {
     return this.http.delete(this.baseUrl + 'messages/' + id);
